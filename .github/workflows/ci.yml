@@ -1,0 +1,32 @@
+name: CI Build Verde
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Instalar Java 17 (Temurin) con caché de Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Compilar y ejecutar los tests
+        run: mvn -B verify
+
+      - name: Guardar el .jar como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-verde-jar
+          path: target/*.jar
