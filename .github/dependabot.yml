@@ -1,0 +1,13 @@
+version: 2
+updates:
+  # Dependencias Java declaradas en pom.xml
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Versiones de las acciones usadas en los workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
