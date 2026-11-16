@@ -11,7 +11,7 @@ class CalculadoraTest {
 
     @Test
     void sumaDosNumeros() {
-        assertEquals(6, calc.sumar(2, 3)); // FALLO PROVOCADO: 2 + 3 no es 6
+        assertEquals(5, calc.sumar(2, 3));
     }
 
     @Test
