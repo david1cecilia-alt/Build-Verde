@@ -26,7 +26,7 @@ jobs:
         run: mvn -B verify
 
       - name: Guardar el .jar como artefacto
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-verde-jar
           path: target/*.jar
